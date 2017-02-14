@@ -1,0 +1,104 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+#center {
+	width: 470px;
+	margin: auto;
+}
+
+#buttons {
+	float: right;
+	width: 125px;
+	margin-right: 7px;
+}
+
+#buttonCreate {
+	width: 60px;
+	background-color: rgb(123, 212, 54);
+	border: 0px;
+	padding-bottom: 18px;
+	border-radius: 7px;
+}
+
+#buttonCheck {
+	width: 60px;
+	background-color: rgb(123, 212, 54);
+	border: 0px;
+	padding-bottom: 2px;
+	border-radius: 7px;
+}
+
+#inputRij {
+	border: 3px solid black;
+	padding: 10px;
+	width: 300px;
+	margin-top: 5px;
+}
+
+#ball {
+	border: 3px solid black;
+	border-radius: 15px;
+	padding: 10px;
+	width: 0px;
+	display: inline-block;
+}
+
+#hintsDisplay {
+	border: 3px solid black;
+	border-radius: 15px;
+	padding: 4px;
+	width: 0px;
+	display: inline-block;
+	float: right;
+}
+
+#hintsDisplayAll {
+	width: 31px;
+	float: right;
+	margin-top: 2px;
+}
+
+#colors {
+	border: 3px solid black;
+	padding: 10px;
+	width: 115px;
+	float: right;
+}
+
+#colorRed {
+	border: 3px solid black;
+	border-radius: 15px;
+	padding: 10px;
+	width: 0px;
+	display: inline-block;
+	background-color: red;
+}
+
+#colorBlue {
+	border: 3px solid black;
+	border-radius: 15px;
+	padding: 10px;
+	width: 0px;
+	display: inline-block;
+	background-color: blue;
+}
+
+#colorYellow {
+	border: 3px solid black;
+	border-radius: 15px;
+	padding: 10px;
+	width: 0px;
+	display: inline-block;
+	background-color: yellow;
+}
+
+#colorGreen {
+	border: 3px solid black;
+	border-radius: 15px;
+	padding: 10px;
+	width: 0px;
+	display: inline-block;
+	background-color: green;
+}
