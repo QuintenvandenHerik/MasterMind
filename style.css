@@ -4,29 +4,27 @@
 }
 
 #center {
-	width: 470px;
+	width: 525px;
 	margin: auto;
 }
 
 #buttons {
 	float: right;
-	width: 125px;
-	margin-right: 7px;
+	width: 170px;
+	margin-right: 10px;
 }
 
 #buttonCreate {
-	width: 60px;
+	width: 80px;
 	background-color: rgb(123, 212, 54);
 	border: 0px;
-	padding-bottom: 18px;
 	border-radius: 7px;
 }
 
 #buttonCheck {
-	width: 60px;
+	width: 80px;
 	background-color: rgb(123, 212, 54);
 	border: 0px;
-	padding-bottom: 2px;
 	border-radius: 7px;
 }
 
@@ -37,7 +35,7 @@
 	margin-top: 5px;
 }
 
-#ball {
+#ball1 {
 	border: 3px solid black;
 	border-radius: 15px;
 	padding: 10px;
@@ -45,7 +43,58 @@
 	display: inline-block;
 }
 
-#hintsDisplay {
+#ball2 {
+	border: 3px solid black;
+	border-radius: 15px;
+	padding: 10px;
+	width: 0px;
+	display: inline-block;
+}
+
+#ball3 {
+	border: 3px solid black;
+	border-radius: 15px;
+	padding: 10px;
+	width: 0px;
+	display: inline-block;
+}
+
+#ball4 {
+	border: 3px solid black;
+	border-radius: 15px;
+	padding: 10px;
+	width: 0px;
+	display: inline-block;
+}
+
+#hintsDisplay1 {
+	border: 3px solid black;
+	border-radius: 15px;
+	padding: 4px;
+	width: 0px;
+	display: inline-block;
+	float: right;
+}
+
+#hintsDisplay2 {
+	border: 3px solid black;
+	border-radius: 15px;
+	padding: 4px;
+	width: 0px;
+	display: inline-block;
+	float: right;
+}
+
+#hintsDisplay3 {
+	border: 3px solid black;
+	border-radius: 15px;
+	padding: 4px;
+	width: 0px;
+	display: inline-block;
+	float: right;
+}
+
+#hintsDisplay4 {
 	border: 3px solid black;
 	border-radius: 15px;
 	padding: 4px;
@@ -63,7 +112,7 @@
 #colors {
 	border: 3px solid black;
 	padding: 10px;
-	width: 115px;
+	width: 170px;
 	float: right;
 }
 
@@ -101,4 +150,22 @@
 	width: 0px;
 	display: inline-block;
 	background-color: green;
+}
+
+#colorBlack {
+	border: 3px solid black;
+	border-radius: 15px;
+	padding: 10px;
+	width: 0px;
+	display: inline-block;
+	background-color: black;
+}
+
+#colorOrange {
+	border: 3px solid black;
+	border-radius: 15px;
+	padding: 10px;
+	width: 0px;
+	display: inline-block;
+	background-color: orange;
 }
