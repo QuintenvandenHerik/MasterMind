@@ -8,10 +8,15 @@
 	margin: auto;
 }
 
+#sidebar {
+	width: 200px;
+	float: right;
+}
+
 #buttons {
 	float: right;
 	width: 170px;
-	margin-right: 10px;
+	margin: 8px;
 }
 
 #buttonCreate {
@@ -28,17 +33,59 @@
 	border-radius: 7px;
 }
 
-[name=inputRij] {
+.rowBlocked [name=ball1] {
+	pointer-events: none;
+}
+
+.rowBlocked [name=ball2] {
+	pointer-events: none;
+}
+
+.rowBlocked [name=ball3] {
+	pointer-events: none;
+}
+
+.rowBlocked [name=ball4] {
+	pointer-events: none;
+}
+
+.rowBlocked {
 	border: 3px solid black;
 	padding: 10px;
 	width: 300px;
 	margin-top: 5px;
+	cursor: not-allowed;
+}
+
+.rowBlocked>div:nth=child(1) {
+	border: 3px solid black;
+	border-radius: 15px;
+	padding: 10px;
+	width: 0px;
+	display: inline-block;
+}
+
+.row {
+	border: 3px solid black;
+	padding: 10px;
+	width: 300px;
+	margin-top: 5px;
+	pointer-events: default;
+	cursor: pointer;
+}
+
+.row>div:nth=child(1) {
+	border: 3px solid black;
+	border-radius: 15px;
+	padding: 10px;
+	width: 0px;
+	display: inline-block;
 }
 
 [name=ball1] {
 	border: 3px solid black;
 	border-radius: 15px;
-	padding: 10px;
+	padding: 9px;
 	width: 0px;
 	display: inline-block;
 }
@@ -46,7 +93,7 @@
 [name=ball2] {
 	border: 3px solid black;
 	border-radius: 15px;
-	padding: 10px;
+	padding: 9px;
 	width: 0px;
 	display: inline-block;
 }
@@ -54,7 +101,7 @@
 [name=ball3] {
 	border: 3px solid black;
 	border-radius: 15px;
-	padding: 10px;
+	padding: 9px;
 	width: 0px;
 	display: inline-block;
 }
@@ -62,7 +109,7 @@
 [name=ball4] {
 	border: 3px solid black;
 	border-radius: 15px;
-	padding: 10px;
+	padding: 9px;
 	width: 0px;
 	display: inline-block;
 }
@@ -111,8 +158,9 @@
 
 #colors {
 	border: 3px solid black;
-	padding: 10px;
-	width: 170px;
+	padding: 5px;
+	width: 176px;
+	height: 26px;
 	float: right;
 }
 
