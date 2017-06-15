@@ -114,34 +114,7 @@
 	display: inline-block;
 }
 
-[name=hintsDisplay1] {
-	border: 3px solid black;
-	border-radius: 15px;
-	padding: 4px;
-	width: 0px;
-	display: inline-block;
-	float: right;
-}
-
-[name=hintsDisplay2] {
-	border: 3px solid black;
-	border-radius: 15px;
-	padding: 4px;
-	width: 0px;
-	display: inline-block;
-	float: right;
-}
-
-[name=hintsDisplay3] {
-	border: 3px solid black;
-	border-radius: 15px;
-	padding: 4px;
-	width: 0px;
-	display: inline-block;
-	float: right;
-}
-
-[name=hintsDisplay4] {
+.hintsDisplay {
 	border: 3px solid black;
 	border-radius: 15px;
 	padding: 4px;

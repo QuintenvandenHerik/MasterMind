@@ -6,6 +6,13 @@ var ball1Color = 0;
 var ball2Color = 0;
 var ball3Color = 0;
 var ball4Color = 0;
+var colors = {};
+colors['red'] = 1;
+colors['blue'] = 2;
+colors['yellow'] = 3;
+colors['green'] = 4;
+colors['black'] = 5;
+colors['orange'] = 6;
 var colorRed = 1;
 var colorBlue = 2;
 var colorYellow = 3;
@@ -13,22 +20,22 @@ var colorGreen = 4;
 var colorBlack = 5;
 var	colorOrange = 6;
 var currentColor = 0;
-var code = [];
 var code1 = 0;
 var code2 = 0;
 var code3 = 0;
 var code4 = 0;
+var code = [];
+var attempt = [];
+var actualRowNr = 1;
 
 function createCode() {
 	code1 = Math.floor((Math.random() * 6) + 1);
-	console.log(code1);
 	code2 = Math.floor((Math.random() * 6) + 1);
-	console.log(code2);
 	code3 = Math.floor((Math.random() * 6) + 1);
-	console.log(code3);
 	code4 = Math.floor((Math.random() * 6) + 1);
-	console.log(code4);
-	document.getElementById("inputRij1").className = "row";
+	document.getElementById("inputRij" + actualRowNr.toString()).className = "row";
+	code = [code1, code2, code3, code4];
+	console.log(code);
 }
 
 function createRow(nr){
@@ -36,7 +43,7 @@ function createRow(nr){
 	var container = document.getElementById("center");
 	row.className = "rowBlocked";
 	row.setAttribute("id", "inputRij"+nr);
-	row.innerHTML = '<div name="ball1"></div><div name="ball2"></div><div name="ball3"></div><div name="ball4"></div><div name="hintsDisplayAll"><div name="hintsDisplay1"></div><div name="hintsDisplay2"></div><div name="hintsDisplay3"></div><div name="hintsDisplay4"></div></div>';
+	row.innerHTML = '<div name="ball1" class="ball"></div><div name="ball2" class="ball"></div><div name="ball3" class="ball"></div><div name="ball4" class="ball"></div><div name="hintsDisplayAll"><div class="hintsDisplay"></div><div class="hintsDisplay"></div><div class="hintsDisplay"></div><div class="hintsDisplay"></div></div>';
 	container.appendChild(row);
 }
 
@@ -44,14 +51,50 @@ for (var i = 1; i <= 12; i++){
 	createRow(i);
 }
 
-function checkCode() {
-	if (ball1 === code1) {
-		console.log("win");
-	}
-	else {
-		console.log(ball1);
-		console.log("lose");
-	}
+function clone(obj) {
+    if (null == obj || "object" != typeof obj) return obj;
+    var copy = obj.constructor();
+    for (var attr in obj) {
+        if (obj.hasOwnProperty(attr)) copy[attr] = obj[attr];
+    }
+    return copy;
+}
+
+function checkCode (secretcode, attempt){
+// fase 1 check right number in right position
+ console.dir(attempt);
+ 	var code = clone(secretcode);
+    var done = 'X'
+    var green = 0;
+    var red = 0;
+    for (var i = 0; i < code.length; i++){
+        if (code[i] == attempt[i]){
+            green++;
+            code[i] = done;
+            attempt[i] = done;
+        }
+        if (green === 4) {
+    		if (alert("Winner Winner Chicken Dinner!")){}
+    		else {
+    			window.location.reload();
+    		}
+    	}
+    }
+    
+// fase 2 check right number in wrong position
+    for (var i = 0; i < code.length; i++){
+        if (code[i] != done){
+            for (var j = 0; j < attempt.length; j++){
+                if (attempt[j] != done){
+                    if (code[i] == attempt[j]){
+                        red++;
+                        attempt[j] = done;
+                    }
+                }
+            }
+        }
+    }
+    return {green: green, red: red};
 }
 
 function pickColorRed() {
@@ -201,7 +244,43 @@ function fillBall4(event) {
 		event.target.style.backgroundColor = "orange";
 		ball4Color = colorOrange;
 	}
-	console.log(ball4Color)
+	console.log(ball4Color);
+}
+
+checkActualCode = function(){
+
+	var attempt = [];
+	var balls = document.querySelectorAll('#inputRij' + actualRowNr.toString() + ' .ball');
+	console.dir(balls);
+	for (var b = 0; b < balls.length; b++){
+		if (balls[b].style.backgroundColor == "") {
+			return
+		}
+		nr = colors[balls[b].style.backgroundColor];
+		attempt.push(nr);
+	}
+	var result = checkCode(code,attempt);
+
+	var hints = document.querySelectorAll('#inputRij' + actualRowNr.toString() + ' .hintsDisplay');
+	var hintsDisplayIndex = 0;
+	for (var i = 1; i <= result.green; i++){
+		hints[hintsDisplayIndex].style.backgroundColor = 'green';
+		hintsDisplayIndex++;
+	}
+
+	for (var i = 1; i <= result.red; i++){
+		hints[hintsDisplayIndex].style.backgroundColor = 'red';
+		hintsDisplayIndex++;
+	}
+	document.getElementById("inputRij" + actualRowNr.toString()).className = "rowBlocked";
+	actualRowNr++;
+	if (actualRowNr > 12) {
+		if	(alert("Better Luck Next Time!")){}
+		else {
+    		window.location.reload();
+    	}
+	}
+	document.getElementById("inputRij" + actualRowNr.toString()).className = "row";
 }
 
 document.getElementById("colorRed").addEventListener("click", pickColorRed);
@@ -211,7 +290,7 @@ document.getElementById("colorGreen").addEventListener("click", pickColorGreen);
 document.getElementById("colorBlack").addEventListener("click", pickColorBlack);
 document.getElementById("colorOrange").addEventListener("click", pickColorOrange);
 document.getElementById("buttonCreate").addEventListener("click", createCode);
-document.getElementById("buttonCheck").addEventListener("click", checkCode);
+document.getElementById("buttonCheck").addEventListener("click", checkActualCode);
 document.querySelectorAll("[name=ball1]").forEach(
 	function(element){
 		element.addEventListener("click", fillBall1);
